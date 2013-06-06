@@ -17,18 +17,12 @@ public class StringCalculator {
             String regex = "[,\n//;]";
             String negative = "-([\\d])(.*)";
             boolean ok = false;
-
             String definePattern = "(//)(\\[)(.*)(\\])(\\n)(.*)";
             if (input.matches(definePattern)) {
-                System.out.println("M");
+                regex = getDefinePattern(input);
                 String[] temp1 = input.split("\\n");
-                String getString = temp1[1];
-                String[] temp2 = temp1[0].split("//");
-                System.out.println(temp2[1]);
-                String defineRegex = temp2[1].substring(1,temp2[1].length()-1);
-                System.out.println(defineRegex);
-                regex = Pattern.quote(defineRegex);
-                input = getString;
+                input = temp1[1];
+
             }
             String[] numberString = input.split(regex);
             String negativeNumbers = "";
@@ -42,7 +36,7 @@ public class StringCalculator {
 
             for (String ni: numberString) {
                 if (ok) {
-                    System.out.println(negativeNumbers);
+                    //System.out.println(negativeNumbers);
                     throw new IllegalArgumentException("Negative is not allowed. " + negativeNumbers);
                 }
                 else if (!ni.isEmpty()) {
@@ -55,5 +49,12 @@ public class StringCalculator {
             }
         }
         return result;
+    }
+
+    public String getDefinePattern(String input) {
+        String[] temp1 = input.split("\\n");
+        String[] temp2 = temp1[0].split("//");
+        String defineRegex = temp2[1].substring(1,temp2[1].length()-1);
+        return Pattern.quote(defineRegex);
     }
 }
