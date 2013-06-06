@@ -15,4 +15,10 @@ public class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
         Assert.assertEquals(0,stringCalculator.Add(""));
     }
+
+    @Test
+    public void testWithTwoNumberInput() {
+        StringCalculator stringCalculator = new StringCalculator();
+        Assert.assertEquals(3,stringCalculator.Add("1,2"));
+    }
 }
