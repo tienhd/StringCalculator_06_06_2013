@@ -27,4 +27,10 @@ public class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
         Assert.assertEquals(6, stringCalculator.Add("1,3,2"));
     }
+
+    @Test
+    public void testEndlineInInputString () {
+        StringCalculator stringCalculator = new StringCalculator();
+        Assert.assertEquals(6,stringCalculator.Add("1\n2,3"));
+    }
 }
