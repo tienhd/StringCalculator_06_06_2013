@@ -31,7 +31,10 @@ public class StringCalculator {
                 }
                 else if (!ni.isEmpty()) {
                     int number = Integer.parseInt(ni);
-                    result += number;
+                    if (number <= 1000) {
+                        result += number;
+                    }
+
                 }
             }
         }
