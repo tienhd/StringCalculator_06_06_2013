@@ -72,4 +72,10 @@ public class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
         Assert.assertEquals(6, stringCalculator.Add("//[***][;;]\n1***2;;3"));
     }
+
+    @Test
+    public void testLongerMultiDefineDelimiter() {
+        StringCalculator stringCalculator = new StringCalculator();
+        Assert.assertEquals(7, stringCalculator.Add("//[***][,,,][;;]\n1***2,,,3;;1"));
+    }
 }
