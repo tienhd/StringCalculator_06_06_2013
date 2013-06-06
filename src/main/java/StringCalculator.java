@@ -6,11 +6,21 @@
  * To change this template use File | Settings | File Templates.
  */
 public class StringCalculator {
-
+    int result = 0;
     public int Add(String input) {
         if (input.isEmpty()) {
             return 0;
         }
-        return -1;
+        else {
+            String regex = "[,]";
+            String[] numberString = input.split(regex);
+            for (String ni: numberString) {
+                if (!ni.isEmpty()) {
+                    int number = Integer.parseInt(ni);
+                    result += number;
+                }
+            }
+        }
+        return result;
     }
 }
