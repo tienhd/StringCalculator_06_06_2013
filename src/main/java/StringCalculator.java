@@ -9,7 +9,7 @@ public class StringCalculator {
     int result = 0;
     public int Add(String input) {
         if (input.isEmpty()) {
-            return 0;
+            return result;
         }
         else {
             String regex = "[,]";
