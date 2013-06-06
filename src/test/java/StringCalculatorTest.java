@@ -53,4 +53,11 @@ public class StringCalculatorTest {
         stringCalculator.Add("//;\n,-1,2,-3");
     }
 
+    @Test
+    public void testWithInputNumberOverThanOneThousand () {
+        StringCalculator stringCalculator = new StringCalculator();
+        Assert.assertEquals(6,stringCalculator.Add("1,2,3;1001"));
+    }
+
+
 }
