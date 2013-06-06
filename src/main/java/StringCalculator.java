@@ -13,9 +13,23 @@ public class StringCalculator {
         }
         else {
             String regex = "[,\n//;]";
+            String negative = "-([\\d])(.*)";
+            boolean ok = false;
             String[] numberString = input.split(regex);
+            String negativeNumbers = "";
             for (String ni: numberString) {
-                if (!ni.isEmpty()) {
+                if (ni.matches(negative)) {
+                    negativeNumbers += ni + " ";
+                    ok = true;
+                    continue;
+                }
+            }
+            for (String ni: numberString) {
+                if (ok) {
+                    System.out.println(negativeNumbers);
+                    throw new IllegalArgumentException("Negative is not allowed. " + negativeNumbers);
+                }
+                else if (!ni.isEmpty()) {
                     int number = Integer.parseInt(ni);
                     result += number;
                 }
