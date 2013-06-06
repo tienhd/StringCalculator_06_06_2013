@@ -1,5 +1,7 @@
 import junit.framework.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -39,4 +41,16 @@ public class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
         Assert.assertEquals(6,stringCalculator.Add("//;\n1,2;3"));
     }
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+
+    @Test
+    public void testNegativeExceptionInInputString() {
+        StringCalculator stringCalculator = new StringCalculator();
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Negative is not allowed. -1 -3");
+        stringCalculator.Add("//;\n,-1,2,-3");
+    }
+
 }
