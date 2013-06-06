@@ -54,7 +54,19 @@ public class StringCalculator {
     public String getDefinePattern(String input) {
         String[] temp1 = input.split("\\n");
         String[] temp2 = temp1[0].split("//");
-        String defineRegex = temp2[1].substring(1,temp2[1].length()-1);
-        return Pattern.quote(defineRegex);
+        //String defineRegex = temp2[1].substring(1,temp2[1].length()-1);
+        String getRegex = temp2[1];
+        String defineRegex = "[";
+        getRegex = getRegex.replaceAll("\\[", " ");
+        getRegex = getRegex.replaceAll("\\]", " ");
+        String[] spilitRegex = getRegex.split(" ");
+        for (String si: spilitRegex) {
+            if (!si.isEmpty()) {
+                defineRegex += "(" + si + ")";
+            }
+        }
+        defineRegex += "]";
+        System.out.println(defineRegex);
+        return defineRegex;
     }
 }
