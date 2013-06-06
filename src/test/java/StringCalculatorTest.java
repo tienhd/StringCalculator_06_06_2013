@@ -21,4 +21,10 @@ public class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
         Assert.assertEquals(3,stringCalculator.Add("1,2"));
     }
+
+    @Test
+    public void testWithMoreInputNumber () {
+        StringCalculator stringCalculator = new StringCalculator();
+        Assert.assertEquals(6, stringCalculator.Add("1,3,2"));
+    }
 }
