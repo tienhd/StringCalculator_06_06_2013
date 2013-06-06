@@ -12,7 +12,7 @@ public class StringCalculator {
             return result;
         }
         else {
-            String regex = "[,\n]";
+            String regex = "[,\n//;]";
             String[] numberString = input.split(regex);
             for (String ni: numberString) {
                 if (!ni.isEmpty()) {
